@@ -1,0 +1,56 @@
+{
+  "name": "bedrock-vue-credential-card-test",
+  "version": "0.0.1-0",
+  "type": "module",
+  "private": true,
+  "description": "Vue.js credential card component for Bedrock Web apps test",
+  "browser": {
+    ".": "./components/index.js"
+  },
+  "scripts": {
+    "start": "node --preserve-symlinks test.js",
+    "test": "node --preserve-symlinks test.js test --framework karma",
+    "coverage": "node --preserve-symlinks test.js test --framework karma --config ./node_modules/@bedrock/karma/lib/coverageConfig.js",
+    "coverage-ci": "node --preserve-symlinks test.js test --framework karma --config ./node_modules/@bedrock/karma/lib/coverageConfig.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/bedrock-vue-credential-card"
+  },
+  "keywords": [
+    "bedrock"
+  ],
+  "author": {
+    "name": "Digital Bazaar, Inc.",
+    "email": "support@digitalbazaar.com",
+    "url": "https://digitalbazaar.com"
+  },
+  "bugs": {
+    "url": "https://github.com/digitalbazaar/bedrock-vue-credential-card/issues"
+  },
+  "homepage": "https://github.com/digitalbazaar/bedrock-vue-credential-card",
+  "dependencies": {
+    "@bedrock/core": "^6.0.1",
+    "@bedrock/express": "^8.0.0",
+    "@bedrock/karma": "^5.1.0",
+    "@bedrock/quasar": "^8.0.1",
+    "@bedrock/server": "^5.0.0",
+    "@bedrock/test": "^8.0.5",
+    "@bedrock/views": "^10.0.3",
+    "@bedrock/vue": "^4.0.0",
+    "@bedrock/vue-credential-card": "file:..",
+    "@bedrock/web": "^2.0.1",
+    "@bedrock/web-fontawesome": "^2.0.0",
+    "@bedrock/webpack": "^8.0.0",
+    "vue": "^3.2.36",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-digitalbazaar": "^2.8.0",
+    "eslint-plugin-jsdoc": "^37.9.7",
+    "eslint-plugin-vue": "^8.6.0",
+    "jsdoc": "^3.6.4",
+    "jsdoc-to-markdown": "^7.1.1"
+  }
+}
