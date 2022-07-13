@@ -10,18 +10,6 @@
         style="max-width: 250px;"
         :credential="alumniCredential"
         :expandable="true" />
-      <credential-switch
-        mode="details"
-        :credential="alumniCredential"
-        :clickable="true" />
-        <div style="border: 1px solid red; max-width: 600px" class="q-my-sm column q-gutter-sm">
-          <credential-switch
-            style=" max-width: 600px"
-            class="q-ma-xs col"
-            :dense="true"
-            :expandable="true"
-            :credential="alumniCredential" />
-        </div>
     </div>
   </q-page>
 </template>

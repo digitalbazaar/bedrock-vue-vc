@@ -15,7 +15,7 @@ import '@bedrock/web-fontawesome';
 
 import {registerComponent} from '@bedrock/vue-credential-card';
 
-import AlumniDisplay from './alumniDisplay.vue';
+import AlumniDisplay from './examples/alumniDisplay.vue';
 
 brVue.initialize({
   async beforeMount({app}) {
@@ -45,15 +45,17 @@ brVue.initialize({
     //   }
     // });
 
+    // Configure example alumni display component with
+    // `credentialSwitch` for 'Alumni' credentials.
     await registerComponent({
-      app, component: AlumniDisplay, name: 'AlumniDisplay', prefix: 'VCCTEST'
+      app, component: AlumniDisplay, name: 'AlumniDisplay'
     });
 
     config.credentialDisplay = {
       registration: [{
         acceptableTypes: ['AlumniCredential'],
         components: {
-          details: [{component: 'AlumniDisplay', prefix: 'VCCTEST'}],
+          details: [{component: 'AlumniDisplay'}],
         }
       }]
     }
