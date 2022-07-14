@@ -8,8 +8,7 @@ import '@bedrock/karma';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-config.karma.suites['bedrock-vue-vc'] =
-  path.join('web', '**', '*.js');
+config.karma.suites['bedrock-vue-vc'] = path.join('web', '**', '*.js');
 config.karma.config.proxies = {
   '/': 'https://localhost:18443'
 };

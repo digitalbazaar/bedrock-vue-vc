@@ -10,8 +10,9 @@
   "scripts": {
     "start": "node --preserve-symlinks test.js",
     "test": "node --preserve-symlinks test.js test --framework karma",
-    "coverage": "node --preserve-symlinks test.js test --framework karma --config ./node_modules/@bedrock/karma/lib/coverageConfig.js",
-    "coverage-ci": "node --preserve-symlinks test.js test --framework karma --config ./node_modules/@bedrock/karma/lib/coverageConfig.js"
+    "test:debug": "node --preserve-symlinks test.js test --framework karma --log-level debug",
+    "coverage": "cross-env NODE_ENV=test c8 npm run test",
+    "coverage-ci": "cross-env NODE_ENV=test c8 --reporter=lcovonly --reporter=text-summary --reporter=text npm run test"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,7 @@
   "dependencies": {
     "@bedrock/core": "^6.0.1",
     "@bedrock/express": "^8.0.0",
-    "@bedrock/karma": "^5.1.0",
+    "@bedrock/karma": "^6.0.0",
     "@bedrock/quasar": "^8.0.1",
     "@bedrock/server": "^5.0.0",
     "@bedrock/test": "^8.0.5",
@@ -42,6 +43,8 @@
     "@bedrock/web": "^2.0.1",
     "@bedrock/web-fontawesome": "^2.0.0",
     "@bedrock/webpack": "^8.0.0",
+    "c8": "^7.11.3",
+    "cross-env": "^7.0.3",
     "vue": "^3.2.36",
     "vue-router": "^4.0.15"
   },
@@ -52,5 +55,19 @@
     "eslint-plugin-vue": "^8.6.0",
     "jsdoc": "^3.6.4",
     "jsdoc-to-markdown": "^7.1.1"
+  },
+  "c8": {
+    "excludeNodeModules": false,
+    "include": [
+      "node_modules/@bedrock/vue-vc/**"
+    ],
+    "exclude": [
+      "node_modules/@bedrock/vue-vc/node_modules/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary",
+      "text"
+    ]
   }
 }

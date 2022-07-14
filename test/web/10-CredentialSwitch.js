@@ -1,12 +1,12 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import Vue from 'vue';
-import {CredentialCard} from '@bedrock/vue-vc';
+import {createApp} from 'vue';
+import {CredentialSwitch} from '@bedrock/vue-vc';
 
 // helper function that mounts and returns the rendered text
-function renderCredentialCard(propsData) {
-  const Constructor = Vue.extend(CredentialCard);
+function renderCredential(propsData) {
+  const Constructor = createApp(CredentialSwitch);
   return new Constructor({propsData}).$mount();
 }
 
