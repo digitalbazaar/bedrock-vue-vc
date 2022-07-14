@@ -2,7 +2,7 @@
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
 import Vue from 'vue';
-import {CredentialCard} from '@bedrock/vue-credential-card';
+import {CredentialCard} from '@bedrock/vue-vc';
 
 // helper function that mounts and returns the rendered text
 function renderCredentialCard(propsData) {

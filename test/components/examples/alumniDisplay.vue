@@ -5,7 +5,7 @@
       <credential-field
         title="Granted by"
         value="Example University" />
-      <credential-card-image
+      <dynamic-image
         :src="credentialImage"
         size="lg" />
       <credential-field
@@ -24,9 +24,9 @@
  */
 import {
   CredentialField,
-  CredentialCardImage,
+  DynamicImage,
   useCredentialCommon
-} from '@bedrock/vue-credential-card';
+} from '@bedrock/vue-vc';
 
 import {defineProps, toRef} from 'vue';
 

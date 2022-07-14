@@ -13,7 +13,7 @@
           value-class="text-left text-body2 text-grey-7" />
       </slot>
       <slot name="image">
-        <credential-card-image
+        <dynamic-image
           :src="imageOverride.length > 0 ? imageOverride : credentialImage"
           :size="dense ? 'sm' : 'md'" />
       </slot>
@@ -75,7 +75,7 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import CredentialCardImage from './CredentialCardImage.vue';
+import DynamicImage from './DynamicImage.vue';
 import CredentialField from './CredentialField.vue';
 import CredentialSwitch from './CredentialSwitch.vue';
 import {computed, defineProps, reactive, toRef, unref} from 'vue';

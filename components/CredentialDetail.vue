@@ -5,7 +5,7 @@
       <credential-field
         title="Issued by"
         :value="issuerName" />
-      <credential-card-image
+      <dynamic-image
         :src="credentialImage"
         size="lg" />
       <credential-field
@@ -22,7 +22,7 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import CredentialCardImage from './CredentialCardImage.vue';
+import DynamicImage from './DynamicImage.vue';
 import CredentialField from './CredentialField.vue';
 import {defineProps, toRef} from 'vue';
 import {useCredentialCommon} from './credentialCommon.js';
@@ -30,7 +30,7 @@ import {useCredentialCommon} from './credentialCommon.js';
 const props = defineProps({
   credential: {
     type: Object,
-    default: false
+    default: null
   },
   dense: {
     type: Boolean,
