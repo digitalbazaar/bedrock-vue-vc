@@ -13,7 +13,7 @@ import TestApp from '../components/TestApp.vue';
 import './app.less';
 import '@bedrock/web-fontawesome';
 
-import {registerComponent} from '@bedrock/vue-credential-card';
+import {registerComponent} from '@bedrock/vue-vc';
 
 import AlumniDisplay from './examples/alumniDisplay.vue';
 

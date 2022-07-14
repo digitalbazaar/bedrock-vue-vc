@@ -12,10 +12,13 @@
   </div>
 </template>
 
-<script>
+<script setup>
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
+import {computed, defineProps, ref} from 'vue';
+import {useQuasar} from 'quasar';
+
 const DEFAULT_ICONS = {
   fontawesome: {
     defaultImage: 'fas fa-check-square'
@@ -24,58 +27,51 @@ const DEFAULT_ICONS = {
     defaultImage: 'check_box'
   }
 };
+const $q = useQuasar();
 
-export default {
-  name: 'CredentialCardImage',
-  props: {
-    src: {
-      type: String,
-      required: true,
-      default: ''
-    },
-    size: {
-      type: String,
-      required: true,
-      default: 'md'
-    }
-  },
-  data() {
-    return {
-      hasImageError: false
-    };
-  },
-  computed: {
-    showDefault() {
-      return !this.src;
-    },
-    defaultImage() {
-      return this.$q.iconSet.credentialCard.defaultImage;
-    },
-    credentialImageClass() {
-      return [`credential-card-image-${this.size}`];
-    }
-  },
-  beforeCreate() {
-    // set default icons
-    const defaultIcons = DEFAULT_ICONS[this.$q.iconSet.name] ||
-      DEFAULT_ICONS.fontawesome;
-    // if the iconSet is missing credentialCard add it
-    if(!this.$q.iconSet.credentialCard) {
-      this.$q.iconSet.credentialCard = {};
-    }
-    // add all the defaultIcons to credentialCard
-    for(const name in defaultIcons) {
-      if(!this.$q.iconSet.credentialCard[name]) {
-        this.$q.iconSet.credentialCard[name] = defaultIcons[name];
-      }
-    }
-  },
-  methods: {
-    imageError() {
-      this.hasImageError = true;
-    }
+// set default icons
+const defaultIcons = DEFAULT_ICONS[$q.iconSet.name] ||
+  DEFAULT_ICONS.fontawesome;
+// if the iconSet is missing credentialCard add it
+if(!$q.iconSet.credentialCard) {
+  $q.iconSet.credentialCard = {};
+}
+// add all the defaultIcons to credentialCard
+for(const name in defaultIcons) {
+  if(!$q.iconSet.credentialCard[name]) {
+    $q.iconSet.credentialCard[name] = defaultIcons[name];
   }
-};
+}
+
+const hasImageError = ref(false);
+const props = defineProps({
+  src: {
+    type: String,
+    required: true,
+    default: ''
+  },
+  size: {
+    type: String,
+    required: true,
+    default: 'md'
+  }
+});
+
+const showDefault = computed(() => {
+  return !props.src;
+});
+
+const defaultImage = computed(() => {
+  return $q.iconSet.credentialCard.defaultImage;
+});
+
+const credentialImageClass = computed(() => {
+  return [`credential-card-image-${props.size}`];
+});
+
+function imageError() {
+  hasImageError.value = true;
+}
 </script>
 
 <style lang="scss" scoped>

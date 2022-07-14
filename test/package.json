@@ -1,5 +1,5 @@
 {
-  "name": "bedrock-vue-credential-card-test",
+  "name": "bedrock-vue-vc-test",
   "version": "0.0.1-0",
   "type": "module",
   "private": true,
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/digitalbazaar/bedrock-vue-credential-card"
+    "url": "https://github.com/digitalbazaar/bedrock-vue-vc"
   },
   "keywords": [
     "bedrock"
@@ -26,9 +26,9 @@
     "url": "https://digitalbazaar.com"
   },
   "bugs": {
-    "url": "https://github.com/digitalbazaar/bedrock-vue-credential-card/issues"
+    "url": "https://github.com/digitalbazaar/bedrock-vue-vc/issues"
   },
-  "homepage": "https://github.com/digitalbazaar/bedrock-vue-credential-card",
+  "homepage": "https://github.com/digitalbazaar/bedrock-vue-vc",
   "dependencies": {
     "@bedrock/core": "^6.0.1",
     "@bedrock/express": "^8.0.0",
@@ -38,7 +38,7 @@
     "@bedrock/test": "^8.0.5",
     "@bedrock/views": "^10.0.3",
     "@bedrock/vue": "^4.0.0",
-    "@bedrock/vue-credential-card": "file:..",
+    "@bedrock/vue-vc": "file:..",
     "@bedrock/web": "^2.0.1",
     "@bedrock/web-fontawesome": "^2.0.0",
     "@bedrock/webpack": "^8.0.0",

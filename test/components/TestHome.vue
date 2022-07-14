@@ -19,7 +19,7 @@
  */
 import {
   CredentialSwitch
-} from '@bedrock/vue-credential-card';
+} from '@bedrock/vue-vc';
 import {alumniCredential} from './credentials';
 const issuer = 'did:v1:test:1234';
 
