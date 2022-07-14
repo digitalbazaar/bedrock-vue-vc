@@ -13,7 +13,7 @@ function renderCredential(propsData) {
 describe('CredentialCard', () => {
   it('should render content if type of value is a string in credential ' +
     'subject', async () => {
-    const vm = renderCredentialCard({
+    const vm = renderCredential({
       credential: {
         credentialSubject: {
           name: 'John Doe',
@@ -40,7 +40,7 @@ describe('CredentialCard', () => {
     const valueTypes = [undefined, null];
 
     for(const value of valueTypes) {
-      const vm = renderCredentialCard({
+      const vm = renderCredential({
         credential: {
           credentialSubject: {
             name: value,
@@ -67,7 +67,7 @@ describe('CredentialCard', () => {
     const valueTypes = [ NaN, 0, false];
 
     for(const value of valueTypes) {
-      const vm = renderCredentialCard({
+      const vm = renderCredential({
         credential: {
           credentialSubject: {
             name: value,
@@ -90,7 +90,7 @@ describe('CredentialCard', () => {
   });
   it('should render content if type of value in credential ' +
     'subject is an object', async () => {
-    const vm = renderCredentialCard({
+    const vm = renderCredential({
       credential: {
         credentialSubject: {
           address: {
