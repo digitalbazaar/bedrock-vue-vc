@@ -55,7 +55,7 @@ const selection = computed(() => {
     }
   }
   const {mode, credential} = props;
-  const {type} = unref(credential);
+  const {type = ''} = unref(credential);
   //work backwards to lookup type in mapping
   //use defaults if not found in mapping
   let options;
