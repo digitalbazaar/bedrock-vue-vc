@@ -58,7 +58,7 @@ brVue.initialize({
           details: [{component: 'AlumniDisplay'}],
         }
       }]
-    }
+    };
     return TestApp;
   }
 });
