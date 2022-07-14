@@ -74,8 +74,8 @@ const selection = computed(() => {
   // globally registered. This would allow for the component
   // selection to walk through the options and select the first
   // available component for the type.
-  const {prefix = '', component} = options[0];
-  return `${prefix}${component}`;
+  const {component} = options[0];
+  return `${component}`;
 });
 
 </script>
