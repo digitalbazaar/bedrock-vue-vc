@@ -8,8 +8,9 @@
     "lint": "eslint ."
   },
   "files": [
-    "lib/*",
-    "components/*"
+    "lib/**/*.js",
+    "components/**/*.js",
+    "components/**/*.vue"
   ],
   "peerDependencies": {
     "@bedrock/quasar": "^8.0.1",
