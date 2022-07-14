@@ -38,12 +38,12 @@
     "@bedrock/server": "^5.0.0",
     "@bedrock/test": "^8.0.5",
     "@bedrock/views": "^10.0.3",
-    "@bedrock/vue": "^4.0.0",
+    "@bedrock/vue": "^4.0.1",
     "@bedrock/vue-vc": "file:..",
     "@bedrock/web": "^2.0.1",
     "@bedrock/web-fontawesome": "^2.0.0",
     "@bedrock/webpack": "^8.0.0",
-    "vue": "^3.2.36",
-    "vue-router": "^4.0.15"
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.2"
   }
 }

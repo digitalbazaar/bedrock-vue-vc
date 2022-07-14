@@ -14,7 +14,7 @@
   "peerDependencies": {
     "@bedrock/quasar": "^8.0.1",
     "@bedrock/web": "^2.0.1",
-    "vue": "^3.2.36"
+    "vue": "^3.2.37"
   },
   "repository": {
     "type": "git",
