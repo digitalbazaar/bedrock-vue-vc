@@ -75,10 +75,10 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
+import {computed, defineProps, reactive, toRef, unref} from 'vue';
 import DynamicImage from './DynamicImage.vue';
 import CredentialField from './CredentialField.vue';
 import CredentialSwitch from './CredentialSwitch.vue';
-import {computed, defineProps, reactive, toRef, unref} from 'vue';
 import {useCredentialCommon} from './credentialCommon.js';
 
 const props = defineProps({
@@ -147,7 +147,6 @@ function toggleDetails() {
   console.log(state.details);
   state.details = !state.details;
 }
-
 </script>
 
 <style lang="scss" scoped>

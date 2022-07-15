@@ -19,6 +19,9 @@
 </template>
 
 <script setup>
+/*!
+ * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
+ */
 import {computed, defineProps} from 'vue';
 
 const props = defineProps({
@@ -44,11 +47,8 @@ const props = defineProps({
   }
 });
 
-const show = computed(() => {
-  return props.value.length > 0;
-});
+const show = computed(() => props.value.length > 0);
 </script>
 
 <style lang="scss" scoped>
-
 </style>
