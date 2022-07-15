@@ -21,6 +21,7 @@ import {
   CredentialSwitch
 } from '@bedrock/vue-vc';
 import {alumniCredential} from './credentials';
+
 const issuer = 'did:v1:test:1234';
 
 // used for testing the truncation feature
