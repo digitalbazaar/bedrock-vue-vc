@@ -47,9 +47,10 @@ const selection = computed(() => {
     for(const type of acceptableTypes) {
       // if the type already exists in the map, merge it with the
       // new information
-      if(map.has(type)) {
+      const existing = map.get(type);
+      if(existing) {
         const combined = extend({
-          target: {}, source: [map.get(type), components], deep: true
+          target: {}, source: [existing, components], deep: true
         });
         map.set(type, combined);
         continue;
