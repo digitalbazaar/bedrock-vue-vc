@@ -33,9 +33,6 @@
     "url": "https://github.com/digitalbazaar/bedrock-vue-vc/issues"
   },
   "homepage": "https://github.com/digitalbazaar/bedrock-vue-vc",
-  "bedrock": {
-    "browserDependencies": "all"
-  },
   "devDependencies": {
     "eslint": "^8.19.0",
     "eslint-config-digitalbazaar": "^4.0.1",
