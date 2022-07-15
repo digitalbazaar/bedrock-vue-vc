@@ -20,7 +20,7 @@
 import {
   CredentialSwitch
 } from '@bedrock/vue-vc';
-import {alumniCredential} from './credentials';
+import alumniCredential from './examples/credentials/alumniCredential.json';
 
 const issuer = 'did:v1:test:1234';
 
