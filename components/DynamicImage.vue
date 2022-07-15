@@ -57,17 +57,10 @@ const props = defineProps({
   }
 });
 
-const showDefault = computed(() => {
-  return !props.src;
-});
-
-const defaultImage = computed(() => {
-  return $q.iconSet.credentialCard.defaultImage;
-});
-
-const credentialImageClass = computed(() => {
-  return [`credential-card-image-${props.size}`];
-});
+const showDefault = computed(() => !props.src);
+const defaultImage = computed(() => $q.iconSet.credentialCard.defaultImage);
+const credentialImageClass = computed(
+  () => [`credential-card-image-${props.size}`]);
 
 function imageError() {
   hasImageError.value = true;

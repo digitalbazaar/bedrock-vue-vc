@@ -1,14 +1,13 @@
 /*!
  * Copyright (c) 2022 Digital Bazaar, Inc. All rights reserved.
  */
-
 import {computed, unref} from 'vue';
 
 /**
  * Common utilities for credential components.
  *
  * @param {object} options - The options to use.
- * @param {Ref} options.credential - A vue ref to the credential.
+ * @param {*} options.credential - A vue ref to the credential.
  * @returns {object} An object containing common credential utilities.
  */
 export function useCredentialCommon({credential}) {
@@ -28,13 +27,7 @@ export function useCredentialCommon({credential}) {
 
   const credentialImage = computed(() => {
     const {image = null, issuer} = unref(credential);
-    if(image) {
-      return image;
-    }
-    if(issuer.image || issuer.logo) {
-      return issuer.image ?? issuer.logo;
-    }
-    return '';
+    return image ?? issuer.image ?? issuer.logo ?? '';
   });
 
   const issuerName = computed(() => {

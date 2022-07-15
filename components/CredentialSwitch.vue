@@ -13,6 +13,9 @@
 </template>
 
 <script setup>
+/*!
+ * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
+ */
 import {computed, defineProps, unref} from 'vue';
 import {config} from '@bedrock/web';
 import CredentialBase from './CredentialBase.vue';
@@ -40,11 +43,11 @@ const selection = computed(() => {
   const map = {};
   for(const registration of registrations) {
     const {acceptableTypes, components} = registration;
-    //loop through types so that map will consist of an object
-    //containing all registered types
+    // loop through types so that map will consist of an object
+    // containing all registered types
     for(const type of acceptableTypes) {
-      //If the type already exists in the map, merge it with the
-      //new information
+      // if the type already exists in the map, merge it with the
+      // new information
       if(map.hasOwnProperty(type)) {
         const existing = map[type];
         const combined = merge(existing, components);
@@ -56,8 +59,8 @@ const selection = computed(() => {
   }
   const {mode, credential} = props;
   const {type = ''} = unref(credential);
-  //work backwards to lookup type in mapping
-  //use defaults if not found in mapping
+  // work backwards to lookup type in mapping
+  // use defaults if not found in mapping
   let options;
   let index = type.length - 1;
   while(!options) {
@@ -75,11 +78,10 @@ const selection = computed(() => {
   // selection to walk through the options and select the first
   // available component for the type.
   const {component} = options[0];
-  return `${component}`;
+  return component;
 });
 
 </script>
 
 <style lang="scss" scoped>
-
 </style>
