@@ -44,7 +44,6 @@ const {
 } = useCredentialCommon({
   credential: toRef(props, 'credential')
 });
-
 </script>
 
 <style lang="scss" scoped>

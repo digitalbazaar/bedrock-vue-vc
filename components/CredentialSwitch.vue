@@ -17,10 +17,9 @@
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
 import {computed, defineProps, unref} from 'vue';
-import {config} from '@bedrock/web';
+import {config, extend} from '@bedrock/web';
 import CredentialBase from './CredentialBase.vue';
 import CredentialDetail from './CredentialDetail.vue';
-import {merge} from 'lodash-es';
 
 const componentDefaults = {
   list: CredentialBase,
@@ -40,7 +39,7 @@ const props = defineProps({
 
 const selection = computed(() => {
   const {credentialDisplay: {registration: registrations}} = config;
-  const map = {};
+  const map = new Map();
   for(const registration of registrations) {
     const {acceptableTypes, components} = registration;
     // loop through types so that map will consist of an object
@@ -48,13 +47,14 @@ const selection = computed(() => {
     for(const type of acceptableTypes) {
       // if the type already exists in the map, merge it with the
       // new information
-      if(map.hasOwnProperty(type)) {
-        const existing = map[type];
-        const combined = merge(existing, components);
-        map[type] = combined;
+      if(map.has(type)) {
+        const combined = extend({
+          target: {}, source: [map.get(type), components], deep: true
+        });
+        map.set(type, combined);
         continue;
       }
-      map[type] = components;
+      map.set(type, components);
     }
   }
   const {mode, credential} = props;
@@ -68,9 +68,7 @@ const selection = computed(() => {
       return componentDefaults[mode];
     }
     const granularType = type[index];
-    if(map[granularType]?.[mode]) {
-      options = map[granularType][mode];
-    }
+    options = map.get(granularType)?.[mode];
     index--;
   }
   // TODO: Determine if there is a way to check which components are
