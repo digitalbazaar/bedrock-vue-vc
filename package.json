@@ -12,11 +12,6 @@
     "components/**/*.js",
     "components/**/*.vue"
   ],
-  "peerDependencies": {
-    "@bedrock/quasar": "^8.0.1",
-    "@bedrock/web": "^2.0.1",
-    "vue": "^3.2.37"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/digitalbazaar/bedrock-vue-vc"
@@ -33,6 +28,11 @@
     "url": "https://github.com/digitalbazaar/bedrock-vue-vc/issues"
   },
   "homepage": "https://github.com/digitalbazaar/bedrock-vue-vc",
+  "peerDependencies": {
+    "@bedrock/quasar": "^8.0.1",
+    "@bedrock/web": "^2.0.1",
+    "vue": "^3.2.37"
+  },
   "devDependencies": {
     "eslint": "^8.19.0",
     "eslint-config-digitalbazaar": "^4.0.1",
