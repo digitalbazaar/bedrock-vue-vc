@@ -6,8 +6,9 @@ import {CredentialSwitch} from '@bedrock/vue-vc';
 
 // helper function that mounts and returns the rendered text
 function renderCredential(propsData) {
-  const Constructor = createApp(CredentialSwitch);
-  return new Constructor({propsData}).$mount();
+  const app = createApp(CredentialSwitch, propsData);
+  // use the universal selector to get the first element
+  return app.mount('*');
 }
 
 describe('CredentialCard', () => {
@@ -29,6 +30,7 @@ describe('CredentialCard', () => {
         }
       }
     });
+    console.log({vm});
     should.exist(vm);
     should.exist(vm.$el);
     vm.$el.querySelector('.g-field-data-regular')
