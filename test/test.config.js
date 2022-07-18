@@ -18,6 +18,10 @@ config.karma.config.proxyValidateSSL = false;
 config.karma.config.webpack.resolve = {
   alias: {
     quasar$: path.resolve(
-      __dirname, 'node_modules/quasar/dist/quasar.umd.js')
+      __dirname, 'node_modules/quasar/dist/quasar.umd.js'),
+    vue$: path.resolve(
+      __dirname, 'node_modules/vue/dist/vue.cjs.js'),
+    '@bedrock/web': path.resolve(
+      __dirname, 'node_modules/@bedrock/web/lib/index.js')
   }
 };
