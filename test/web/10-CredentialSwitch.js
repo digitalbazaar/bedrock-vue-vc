@@ -5,16 +5,16 @@ import {alumniCredential, basicCredential} from './mock-credentials.js';
 import {CredentialSwitch, registerComponent} from '@bedrock/vue-vc';
 import AlumniDisplay from './../components/examples/alumniDisplay.vue';
 import {config} from '@bedrock/web';
+import {createApp} from 'vue';
 import {default as iconSet} from 'quasar/icon-set/fontawesome-v5.js';
-import Quasar from 'quasar';
-import Vue from 'vue';
+import {Quasar} from 'quasar';
 
 function tearDown(app) {
   return app.unmount();
 }
 
-function createApp({propsData = {}}) {
-  const app = Vue.createApp(CredentialSwitch, propsData);
+function _createApp({propsData = {}}) {
+  const app = createApp(CredentialSwitch, propsData);
   app.use(Quasar);
   Quasar.iconSet.set(iconSet);
   return app;
@@ -23,7 +23,7 @@ function createApp({propsData = {}}) {
 // helper function that mounts and returns the rendered text
 function renderCredential({app = null, propsData = {}}) {
   if(!app) {
-    app = createApp({propsData});
+    app = _createApp({propsData});
   }
   const vm = app.mount('*');
   return {app, vm};
@@ -55,7 +55,7 @@ describe('CredentialSwitch', () => {
   });
 
   it('should render credential for registered component', async () => {
-    const app = await createApp({
+    const app = await _createApp({
       propsData: {credential: alumniCredential, mode: 'details'}});
     await registerComponent({
       app, component: AlumniDisplay, name: 'AlumniDisplay'});

@@ -7,7 +7,7 @@ import {config} from '@bedrock/web';
 
 import {createRouter, createWebHistory} from 'vue-router';
 import {default as iconSet} from 'quasar/icon-set/fontawesome-v5.js';
-import Quasar from 'quasar';
+import {Quasar} from 'quasar';
 import TestApp from '../components/TestApp.vue';
 
 import './app.less';
