@@ -4,11 +4,13 @@
       <q-item-section>
         <q-item-label
           v-if="title"
+          class="cf-title"
           :class="titleClass"
           :lines="lines">
           {{title}}
         </q-item-label>
         <q-item-label
+          class="cf-value"
           :class="valueClass"
           :lines="lines">
           {{value}}
