@@ -17,18 +17,18 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
+import alumniCredential from './examples/credentials/alumniCredential.json';
 import {
   CredentialSwitch
 } from '@bedrock/vue-vc';
-import alumniCredential from './examples/credentials/alumniCredential.json';
 
-const issuer = 'did:v1:test:1234';
+//const issuer = 'did:v1:test:1234';
 
 // used for testing the truncation feature
-let more = '';
-for(let i = 0; i < 200; i++) {
-  more += ' more ';
-}
+//let more = '';
+//for(let i = 0; i < 200; i++) {
+//  more += ' more ';
+//}
 
 export default {
   name: 'TestHome',
