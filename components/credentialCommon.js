@@ -27,12 +27,12 @@ export function useCredentialCommon({credential}) {
 
   const credentialImage = computed(() => {
     const {image = null, issuer} = unref(credential);
-    return image ?? issuer.image ?? issuer.logo ?? '';
+    return image ?? issuer?.image ?? issuer?.logo ?? '';
   });
 
   const issuerName = computed(() => {
     const {issuer} = unref(credential);
-    return issuer.name ?? '';
+    return issuer?.name ?? '';
   });
 
   const credentialDescription = computed(() => {
