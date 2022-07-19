@@ -22,9 +22,9 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import {defineProps, toRef} from 'vue';
 import CredentialField from './CredentialField.vue';
 import DynamicImage from './DynamicImage.vue';
+import {toRef} from 'vue';
 import {useCredentialCommon} from './credentialCommon.js';
 
 const props = defineProps({

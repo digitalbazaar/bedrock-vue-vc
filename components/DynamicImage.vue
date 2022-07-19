@@ -16,7 +16,7 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import {computed, defineProps, ref} from 'vue';
+import {computed, ref} from 'vue';
 import {useQuasar} from 'quasar';
 
 const DEFAULT_ICONS = {

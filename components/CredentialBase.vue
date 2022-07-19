@@ -75,7 +75,7 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import {computed, defineProps, reactive, toRef, unref} from 'vue';
+import {computed, reactive, toRef, unref} from 'vue';
 import CredentialField from './CredentialField.vue';
 import CredentialSwitch from './CredentialSwitch.vue';
 import DynamicImage from './DynamicImage.vue';

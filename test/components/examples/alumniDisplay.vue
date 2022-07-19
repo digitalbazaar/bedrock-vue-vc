@@ -28,7 +28,7 @@ import {
   useCredentialCommon
 } from '@bedrock/vue-vc';
 
-import {defineProps, toRef} from 'vue';
+import {toRef} from 'vue';
 
 const props = defineProps({
   credential: {

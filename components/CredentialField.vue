@@ -24,7 +24,7 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import {computed, defineProps} from 'vue';
+import {computed} from 'vue';
 
 const props = defineProps({
   title: {

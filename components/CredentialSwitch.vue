@@ -16,7 +16,7 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import {computed, defineProps, unref} from 'vue';
+import {computed, unref} from 'vue';
 import {config, extend} from '@bedrock/web';
 import CredentialBase from './CredentialBase.vue';
 import CredentialDetail from './CredentialDetail.vue';
