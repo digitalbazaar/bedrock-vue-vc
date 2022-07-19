@@ -33,7 +33,7 @@ import {defineProps, toRef} from 'vue';
 const props = defineProps({
   credential: {
     type: Object,
-    default: false
+    default: null
   },
   dense: {
     type: Boolean,
@@ -42,8 +42,7 @@ const props = defineProps({
 });
 
 const {
-  credentialName, credentialImage,
-  issuerName, credentialDescription
+  credentialName, credentialImage, credentialDescription
 } = useCredentialCommon({
   credential: toRef(props, 'credential')
 });
