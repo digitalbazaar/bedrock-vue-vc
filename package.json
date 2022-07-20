@@ -1,6 +1,6 @@
 {
   "name": "@bedrock/vue-vc",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "description": "Vue.js credential components for Bedrock Web Apps",
   "module": "./lib/index.js",
