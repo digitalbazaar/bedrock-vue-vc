@@ -3,7 +3,7 @@
  */
 import {alumniCredential, basicCredential} from './mock-credentials.js';
 import {CredentialSwitch, registerComponent} from '@bedrock/vue-vc';
-import AlumniDisplay from './../components/examples/alumniDisplay.vue';
+import AlumniDisplay from '../components/examples/alumniDisplay.vue';
 import {config} from '@bedrock/web';
 import {createApp} from 'vue';
 import {default as iconSet} from 'quasar/icon-set/fontawesome-v5.js';
