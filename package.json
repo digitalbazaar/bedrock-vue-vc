@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/digitalbazaar/bedrock-vue-vc",
   "peerDependencies": {
-    "@bedrock/quasar": "^8.0.1",
-    "@bedrock/web": "^2.0.1",
+    "@bedrock/quasar": "^9.0.0",
+    "@bedrock/web": "^3.0.0",
     "vue": "^3.2.37"
   },
   "devDependencies": {
