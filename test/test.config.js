@@ -16,12 +16,6 @@ config.karma.config.proxyValidateSSL = false;
 
 // TODO: consider moving to `bedrock-karma`?
 config.karma.config.webpack.resolve = {
-  alias: {
-    quasar$: path.resolve(
-      __dirname, 'node_modules/quasar'),
-    vue$: path.resolve(
-      __dirname, 'node_modules/vue'),
-    '@bedrock/web$': path.resolve(
-      __dirname, 'node_modules/@bedrock/web')
-  }
+  // ensure peer deps can be found in test `node_modules` dir
+  modules: [path.resolve(__dirname, 'node_modules')]
 };
