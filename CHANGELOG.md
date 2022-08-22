@@ -1,5 +1,10 @@
 # bedrock-vue-vc ChangeLog
 
+## 2.0.1 - 2022-08-xx
+
+### Fixed
+- Use `exports` in `package.json`.
+
 ## 2.0.0 - 2022-08-22
 
 ### Changed
