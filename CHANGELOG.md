@@ -1,6 +1,6 @@
 # bedrock-vue-vc ChangeLog
 
-## 2.0.0 - 2022-08-xx
+## 2.0.0 - 2022-08-22
 
 ### Changed
 - **BREAKING**: Update peer deps:
