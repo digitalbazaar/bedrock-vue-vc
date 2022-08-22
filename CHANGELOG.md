@@ -1,6 +1,6 @@
 # bedrock-vue-vc ChangeLog
 
-## 2.0.2 - 2022-08-xx
+## 2.0.2 - 2022-08-22
 
 ### Fixed
 - Ensure components are exported.
