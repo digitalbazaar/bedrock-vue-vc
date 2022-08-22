@@ -5,7 +5,8 @@
 ### Changed
 - **BREAKING**: Update peer deps:
   - `@bedrock/quasar@9`
-  - `@bedrock/web@9`.
+  - `@bedrock/vue@5`
+  - `@bedrock/web@3`.
 
 ## 1.0.0 - 2022-07-20
 
