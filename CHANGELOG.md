@@ -1,5 +1,10 @@
 # bedrock-vue-vc ChangeLog
 
+## 2.1.1 - 2024-xx-xx
+
+### Added
+- Add quasar linting.
+
 ## 2.1.0 - 2023-12-01
 
 ### Added
