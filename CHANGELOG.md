@@ -5,6 +5,9 @@
 ### Added
 - Add quasar linting.
 
+### Changed
+- Update dependencies.
+
 ## 2.1.0 - 2023-12-01
 
 ### Added
