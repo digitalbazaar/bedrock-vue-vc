@@ -1,6 +1,6 @@
 # bedrock-vue-vc ChangeLog
 
-## 2.0.3 - 2022-11-dd
+## 2.0.3 - 2023-11-dd
 
 ### Fixed
 - Allows non-square vc images to not distort.
