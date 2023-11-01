@@ -6,6 +6,7 @@
         title="Issued by"
         :value="issuerName" />
       <dynamic-image
+        class="q-mx-md"
         :src="credentialImage"
         size="lg" />
       <credential-field
