@@ -74,6 +74,10 @@ $md: 75px;
 $lg: 125px;
 $xl: 150px;
 
+img {
+    object-fit: contain
+  }
+
 .credential-card-image-xs {
   svg {
     width: $xs;
@@ -153,5 +157,6 @@ $xl: 150px;
     height: $xl;
     border-radius: 4px;
   }
+
 }
 </style>

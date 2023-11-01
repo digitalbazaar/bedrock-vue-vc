@@ -14,6 +14,7 @@
       </slot>
       <slot name="image">
         <dynamic-image
+          class="q-ma-xs"
           :src="imageOverride.length > 0 ? imageOverride : credentialImage"
           :size="dense ? 'sm' : 'md'" />
       </slot>
