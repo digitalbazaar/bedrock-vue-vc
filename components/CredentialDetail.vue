@@ -10,10 +10,10 @@
         :src="credentialImage"
         size="lg" />
       <credential-field
+        :title="name"
+        :value="description"
         class="col text-center"
-        :title="credentialName"
         title-class="text-subtitle1"
-        :value="credentialDescription"
         value-class="text-body2 text-grey-7" />
     </div>
   </div>
@@ -23,7 +23,7 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import {defineProps, toRef} from 'vue';
+import {computed, defineProps, toRef, unref} from 'vue';
 import CredentialField from './CredentialField.vue';
 import DynamicImage from './DynamicImage.vue';
 import {useCredentialCommon} from './credentialCommon.js';
@@ -44,6 +44,16 @@ const {
   issuerName, credentialDescription
 } = useCredentialCommon({
   credential: toRef(props, 'credential')
+});
+
+const name = computed(() => {
+  const name = unref(credentialName);
+  return name || 'No credential name available.';
+});
+
+const description = computed(() => {
+  const description = unref(credentialDescription);
+  return description || 'No description available.';
 });
 </script>
 
