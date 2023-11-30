@@ -1,5 +1,10 @@
 # bedrock-vue-vc ChangeLog
 
+## 2.0.4 - 2023-11-dd
+
+### Added
+- Include default text when credential description is blank.
+
 ## 2.0.3 - 2023-11-01
 
 ### Fixed
