@@ -10,8 +10,8 @@
         :src="credentialImage"
         size="lg" />
       <credential-field
-        :title="name"
         :value="description"
+        :title="credentialName"
         class="col text-center"
         title-class="text-subtitle1"
         value-class="text-body2 text-grey-7" />
@@ -44,11 +44,6 @@ const {
   issuerName, credentialDescription
 } = useCredentialCommon({
   credential: toRef(props, 'credential')
-});
-
-const name = computed(() => {
-  const name = unref(credentialName);
-  return name || 'No credential name available.';
 });
 
 const description = computed(() => {
