@@ -21,7 +21,7 @@
 
 <script setup>
 /*!
- * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2018-2023 Digital Bazaar, Inc. All rights reserved.
  */
 import {computed, defineProps, toRef, unref} from 'vue';
 import CredentialField from './CredentialField.vue';
