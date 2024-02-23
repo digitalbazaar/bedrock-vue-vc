@@ -1,73 +1,40 @@
 <template>
-  <div class="column justify-evenly">
-    <div
-      :class="dense ? 'q-py-none' : 'q-py-xs'"
-      class="cb-content col row justify-between items-center">
+  <div
+    class="full-height"
+    :class="clickable && 'cb-clickable cursor-pointer'"
+    @click="clickable && toggleDetails()">
+    <div class="column full-height">
+      <slot name="image">
+        <dynamic-image
+          class="q-ml-auto"
+          :src="imageOverride.length > 0 ? imageOverride : credentialImage"
+          :size="dense ? 'sm' : 'md'" />
+      </slot>
       <slot name="description">
         <credential-field
-          class="col"
+          class="col flex items-end"
           :title="nameOverride.length > 0 ? nameOverride : credentialName"
-          title-class="text-left text-subtitle1"
+          title-class="text-left text-body1"
           :value="descriptionOverride.length > 0 ?
             descriptionOverride : description"
           value-class="text-left text-body2 text-grey-7" />
       </slot>
-      <slot name="image">
-        <dynamic-image
-          class="q-ma-xs"
-          :src="imageOverride.length > 0 ? imageOverride : credentialImage"
-          :size="dense ? 'sm' : 'md'" />
-      </slot>
     </div>
-    <q-separator
-      v-if="(clickable || expandable) && separator"
-      class="cb-separator" />
-    <div
-      :class="dense ? 'q-py-none' : 'q-py-xs'"
-      class="col">
-      <div
-        v-if="clickable"
-        class="cb-clickable cursor-pointer
-        row items-center justify-center text-grey-7"
-        @click="toggleDetails">
-        <span class="cb-details-text q-mr-sm">{{detailsText}}</span>
-        <q-icon :name="detailsIcon" />
-        <q-dialog v-model="state.details">
-          <slot name="modal">
-            <q-card>
-              <slot name="modalHeader" />
-              <slot name="modalContent">
-                <credential-switch
-                  v-bind="$attrs"
-                  mode="details"
-                  :credential="credential" />
-              </slot>
-              <slot name="modalFooter" />
-            </q-card>
-          </slot>
-        </q-dialog>
-      </div>
-      <div
-        v-else-if="expandable"
-        class="cb-expandable row justify-start text-grey-7 full-width">
-        <q-expansion-item
-          :label="detailsText"
-          class="full-width"
-          dense
-          dense-toggle
-          switch-toggle-side>
-          <slot name="expansion">
-            <slot name="expansionHeader" />
-            <slot name="expansionContent">
+    <div class="col">
+      <q-dialog v-model="state.details">
+        <slot name="modal">
+          <q-card>
+            <slot name="modalHeader" />
+            <slot name="modalContent">
               <credential-switch
                 v-bind="$attrs"
                 mode="details"
                 :credential="credential" />
             </slot>
-            <slot name="expansionFooter" />
-          </slot>
-        </q-expansion-item>
-      </div>
+            <slot name="modalFooter" />
+          </q-card>
+        </slot>
+      </q-dialog>
     </div>
   </div>
 </template>

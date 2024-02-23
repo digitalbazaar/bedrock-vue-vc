@@ -1,16 +1,15 @@
 <template>
   <div v-if="show">
-    <q-item class="col q-py-none">
+    <q-item class="q-pa-none">
       <q-item-section>
         <q-item-label
           v-if="title"
-          class="cf-title"
           :class="titleClass"
           :lines="lines">
           {{title}}
         </q-item-label>
         <q-item-label
-          class="cf-value"
+          style="max-width: 200px;"
           :class="valueClass"
           :lines="lines">
           {{value}}
@@ -37,15 +36,15 @@ const props = defineProps({
   },
   titleClass: {
     type: String,
-    default: 'text-caption text-center text-grey-7'
+    default: 'text-caption text-grey-7'
   },
   valueClass: {
     type: String,
-    default: 'text-body2 text-center'
+    default: 'text-body2'
   },
   lines: {
     type: String,
-    default: '2'
+    default: '1'
   }
 });
 
