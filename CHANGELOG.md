@@ -1,6 +1,6 @@
 # bedrock-vue-vc ChangeLog
 
-## 3.0.0 - 2024-xx-xx
+## 3.0.0 - 2024-03-14
 
 ### Added
 - Add quasar linting.
