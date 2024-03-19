@@ -4,12 +4,13 @@
       <q-item-section>
         <q-item-label
           v-if="title"
+          style="max-width: 225px;"
           :class="titleClass"
           :lines="lines">
           {{title}}
         </q-item-label>
         <q-item-label
-          style="max-width: 200px;"
+          style="max-width: 225px;"
           :class="valueClass"
           :lines="lines">
           {{value}}

@@ -14,28 +14,27 @@
         <credential-field
           class="col flex items-end"
           :title="nameOverride.length > 0 ? nameOverride : credentialName"
-          title-class="text-left text-body1"
+          :title-class="`text-left ${dense ? 'text-body2':'text-body1'}`"
           :value="descriptionOverride.length > 0 ?
             descriptionOverride : description"
-          value-class="text-left text-body2 text-grey-7" />
+          :value-class="`text-left text-grey-7
+            ${dense ? ' text-caption':' text-body2'}`" />
       </slot>
     </div>
-    <div class="col">
-      <q-dialog v-model="state.details">
-        <slot name="modal">
-          <q-card>
-            <slot name="modalHeader" />
-            <slot name="modalContent">
-              <credential-switch
-                v-bind="$attrs"
-                mode="details"
-                :credential="credential" />
-            </slot>
-            <slot name="modalFooter" />
-          </q-card>
-        </slot>
-      </q-dialog>
-    </div>
+    <q-dialog v-model="state.details">
+      <slot name="modal">
+        <q-card>
+          <slot name="modalHeader" />
+          <slot name="modalContent">
+            <credential-switch
+              v-bind="$attrs"
+              mode="details"
+              :credential="credential" />
+          </slot>
+          <slot name="modalFooter" />
+        </q-card>
+      </slot>
+    </q-dialog>
   </div>
 </template>
 
@@ -112,7 +111,6 @@ const description = computed(() => {
 });
 
 function toggleDetails() {
-  console.log(state.details);
   state.details = !state.details;
 }
 </script>
