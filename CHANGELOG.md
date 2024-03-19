@@ -1,6 +1,6 @@
 # bedrock-vue-vc ChangeLog
 
-## 3.0.0 - 2024-02-dd
+## 4.0.0 - 2024-03-dd
 
 ### Changed
 - Change credential card UI to resemble a 3/2 wallet card.
