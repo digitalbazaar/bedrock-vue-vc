@@ -3,19 +3,19 @@
     <q-item class="q-pa-none">
       <q-item-section>
         <q-item-label
+          class="cf-value"
+          style="max-width: 225px;"
+          :class="valueClass"
+          :lines="lines">
+          {{value}}
+        </q-item-label>
+        <q-item-label
           v-if="title"
           class="cf-title"
           style="max-width: 225px;"
           :class="titleClass"
           :lines="lines">
           {{title}}
-        </q-item-label>
-        <q-item-label
-          class="cf-value"
-          style="max-width: 225px;"
-          :class="valueClass"
-          :lines="lines">
-          {{value}}
         </q-item-label>
       </q-item-section>
     </q-item>
