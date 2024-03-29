@@ -6,19 +6,21 @@
     <div class="column full-height">
       <slot name="image">
         <dynamic-image
-          class="q-ml-auto"
+          class="q-mr-auto"
           :src="imageOverride.length > 0 ? imageOverride : credentialImage"
           :size="dense ? 'sm' : 'md'" />
       </slot>
       <slot name="description">
         <credential-field
-          class="col flex items-end"
+          class="col flex items-end q-ml-auto"
+          :style="[textColor && `color: ${textColor}`]"
           :title="nameOverride.length > 0 ? nameOverride : credentialName"
-          :title-class="`text-left ${dense ? 'text-body2':'text-body1'}`"
+          :title-class="`text-right ${dense ? 'text-body2':'text-body1'}`"
           :value="descriptionOverride.length > 0 ?
             descriptionOverride : description"
-          :value-class="`text-left text-grey-7
-            ${dense ? ' text-caption':' text-body2'}`" />
+          :value-class="`text-right
+            ${textColor ? '':' text-grey-7'}
+            ${dense ? ' text-caption':' text-caption'}`" />
       </slot>
     </div>
     <q-dialog v-model="state.details">
@@ -56,6 +58,10 @@ const props = defineProps({
   dense: {
     type: Boolean,
     default: false
+  },
+  textColor: {
+    type: String,
+    default: ''
   },
   separator: {
     type: Boolean,
