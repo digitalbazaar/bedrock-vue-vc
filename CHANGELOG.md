@@ -1,5 +1,13 @@
 # bedrock-vue-vc ChangeLog
 
+## 4.1.0 - 2024-mm-dd
+
+### Added
+- Customizable text color.
+
+### Changed
+- Change card layout.
+
 ## 4.0.0 - 2024-03-19
 
 ### Changed
