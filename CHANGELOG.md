@@ -1,6 +1,6 @@
 # bedrock-vue-vc ChangeLog
 
-## 5.0.0 - 2024-mm-dd
+## 5.0.0 - 2024-04-01
 
 ### Added
 - Customizable text color.
