@@ -3,7 +3,7 @@
     class="full-height"
     :class="clickable && 'cb-clickable cursor-pointer'"
     @click="clickable && toggleDetails()">
-    <div class="column full-height">
+    <div v-if="!singleRow" class="column full-height">
       <slot name="image">
         <dynamic-image
           class="q-mr-auto"
@@ -13,6 +13,26 @@
       <slot name="description">
         <credential-field
           class="col flex items-end q-ml-auto"
+          :style="[textColor && `color: ${textColor}`]"
+          :title="nameOverride.length > 0 ? nameOverride : credentialName"
+          :title-class="`text-right ${dense ? 'text-body2':'text-body1'}`"
+          :value="descriptionOverride.length > 0 ?
+            descriptionOverride : description"
+          :value-class="`text-right
+            ${textColor ? '':' text-grey-7'}
+            ${dense ? ' text-caption':' text-caption'}`" />
+      </slot>
+    </div>
+    <div v-else class="row full-height full-width justify-between">
+      <slot name="image">
+        <dynamic-image
+          class="q-mr-auto"
+          :src="imageOverride.length > 0 ? imageOverride : credentialImage"
+          :size="dense ? 'sm' : 'md'" />
+      </slot>
+      <slot name="description">
+        <credential-field
+          class="row flex items-end"
           :style="[textColor && `color: ${textColor}`]"
           :title="nameOverride.length > 0 ? nameOverride : credentialName"
           :title-class="`text-right ${dense ? 'text-body2':'text-body1'}`"
@@ -94,6 +114,10 @@ const props = defineProps({
   descriptionOverride: {
     type: String,
     default: ''
+  },
+  singleRow: {
+    type: Boolean,
+    default: false
   }
 });
 
