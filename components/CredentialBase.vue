@@ -20,7 +20,8 @@
             descriptionOverride : description"
           :value-class="`text-right
             ${textColor ? '':' text-grey-7'}
-            ${dense ? ' text-caption':' text-caption'}`" />
+            ${dense ? ' text-caption':' text-caption'}`"
+          lines="2" />
       </slot>
     </div>
     <q-dialog v-model="state.details">
