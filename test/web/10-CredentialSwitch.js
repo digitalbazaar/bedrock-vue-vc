@@ -59,6 +59,18 @@ describe('CredentialSwitch', () => {
     tearDown(app);
   });
 
+  it('should clamp the description to 2 lines instead of ' +
+    'truncating to 1', async () => {
+    const {app, vm} = await renderCredential({
+      propsData: {credential: basicCredential}});
+    should.exist(vm);
+    const value = vm.$el.querySelector('.cf-value');
+    should.exist(value);
+    value.classList.contains('ellipsis').should.equal(false);
+    value.style.webkitLineClamp.should.equal('2');
+    tearDown(app);
+  });
+
   it('should resolve an OBv3 achievement image when no top-level ' +
     'image is present', async () => {
     const {app, vm} = await renderCredential({

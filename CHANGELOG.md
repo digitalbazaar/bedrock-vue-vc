@@ -26,6 +26,10 @@
   available." when a real description exists on the achievement.
   Resolved generically via `credentialDefinitions`, same as the image
   fallback above.
+- Clamp `CredentialBase.vue`'s title/description to 2 lines instead of
+  hard-truncating to 1 line with an ellipsis, so more of a credential's
+  description is visible in compact/list views before it needs to
+  wrap or clip.
 
 ## 5.0.0 - 2024-04-01
 
