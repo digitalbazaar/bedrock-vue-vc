@@ -45,8 +45,15 @@ export function useCredentialCommon({credential}) {
   });
 
   const credentialDescription = computed(() => {
-    const {description = ''} = unref(credential);
-    return description;
+    const cred = unref(credential);
+    const {description = ''} = cred;
+    // fall back to a vocabulary-specific description (e.g. OBv3's
+    // `credentialSubject.achievement.description`) when no top-level
+    // description is set. Use `||`, not `??`, so an explicit empty string
+    // (not just a missing/undefined field) also triggers the fallback.
+    const definitionDescription = resolveCredentialDefinitionField(
+      {credential: cred, field: 'descriptionPointer'});
+    return description || definitionDescription || '';
   });
 
   return {

@@ -3,6 +3,8 @@
  */
 import {
   alumniCredential, basicCredential, openBadgeCredential,
+  openBadgeCredentialEmptyTopLevelDescription,
+  openBadgeCredentialNoTopLevelDescription,
   openBadgeCredentialStringAchievementImage
 } from './mock-credentials.js';
 import {CredentialSwitch, registerComponent} from '@bedrock/vue-vc';
@@ -81,6 +83,30 @@ describe('CredentialSwitch', () => {
     img.getAttribute('src').should.equal(
       openBadgeCredentialStringAchievementImage
         .credentialSubject.achievement.image);
+    tearDown(app);
+  });
+
+  it('should resolve an OBv3 achievement description when no top-level ' +
+    'description is present', async () => {
+    const {app, vm} = await renderCredential({
+      propsData: {credential: openBadgeCredentialNoTopLevelDescription}});
+    should.exist(vm);
+    should.exist(vm.$el);
+    vm.$el.querySelector('.cf-value').textContent.trim().should.equal(
+      openBadgeCredentialNoTopLevelDescription
+        .credentialSubject.achievement.description);
+    tearDown(app);
+  });
+
+  it('should resolve an OBv3 achievement description when the ' +
+    'top-level description is an explicit empty string', async () => {
+    const {app, vm} = await renderCredential({
+      propsData: {credential: openBadgeCredentialEmptyTopLevelDescription}});
+    should.exist(vm);
+    should.exist(vm.$el);
+    vm.$el.querySelector('.cf-value').textContent.trim().should.equal(
+      openBadgeCredentialEmptyTopLevelDescription
+        .credentialSubject.achievement.description);
     tearDown(app);
   });
 

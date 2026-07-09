@@ -4,7 +4,9 @@
 import {
   getPointerValue, resolveCredentialDefinitionField
 } from '../../components/credentialDefinitions.js';
-import {openBadgeCredential} from './mock-credentials.js';
+import {
+  openBadgeCredential, openBadgeCredentialNoTopLevelDescription
+} from './mock-credentials.js';
 
 describe('credentialDefinitions', () => {
   describe('getPointerValue', () => {
@@ -35,6 +37,16 @@ describe('credentialDefinitions', () => {
         }).should.deep.equal(
           openBadgeCredential.credentialSubject.achievement.image);
       });
+
+    it('should resolve the OBv3 description pointer for an ' +
+      'OpenBadgeCredential', async () => {
+      resolveCredentialDefinitionField({
+        credential: openBadgeCredentialNoTopLevelDescription,
+        field: 'descriptionPointer'
+      }).should.equal(
+        openBadgeCredentialNoTopLevelDescription
+          .credentialSubject.achievement.description);
+    });
 
     it('should return undefined for a credential matching no definition',
       async () => {

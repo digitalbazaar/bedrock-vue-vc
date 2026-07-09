@@ -96,3 +96,50 @@ export const openBadgeCredentialStringAchievementImage = {
     }
   }
 };
+
+export const openBadgeCredentialNoTopLevelDescription = {
+  '@context': [
+    'https://www.w3.org/2018/credentials/v1',
+    'https://purl.imsglobal.org/spec/ob/v3p0/context.json'
+  ],
+  id: 'http://example.edu/credentials/obv3-2',
+  type: [
+    'VerifiableCredential',
+    'OpenBadgeCredential'
+  ],
+  issuer: {
+    id: 'did:example:issuer',
+    name: 'Example Badge Issuer'
+  },
+  name: 'Open Badge Credential (no top-level description)',
+  issuanceDate: '2024-01-01T12:00:00Z',
+  credentialSubject: {
+    id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
+    type: ['AchievementSubject'],
+    achievement: {
+      id: 'http://example.edu/achievements/2',
+      type: ['Achievement'],
+      name: 'Example Achievement',
+      description: 'The holder earned this achievement.',
+      image: {
+        id: 'http://example.com/achievement-image.png',
+        type: 'Image'
+      }
+    }
+  }
+};
+
+export const openBadgeCredentialEmptyTopLevelDescription = {
+  ...openBadgeCredentialNoTopLevelDescription,
+  id: 'http://example.edu/credentials/obv3-3',
+  name: 'Open Badge Credential (empty top-level description)',
+  description: '',
+  credentialSubject: {
+    ...openBadgeCredentialNoTopLevelDescription.credentialSubject,
+    achievement: {
+      ...openBadgeCredentialNoTopLevelDescription.credentialSubject
+        .achievement,
+      id: 'http://example.edu/achievements/3'
+    }
+  }
+};

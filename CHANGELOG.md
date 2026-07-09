@@ -19,6 +19,13 @@
   OBv3 `OpenBadgeCredential`s no longer show the generic checkbox
   placeholder icon. Resolved generically via `credentialDefinitions`
   rather than hardcoded in `credentialImage` itself.
+- Resolve an Open Badges v3 (OBv3) achievement description
+  (`credentialSubject.achievement.description`) as a fallback for
+  `credentialDescription` when no top-level credential description is
+  present, so OBv3 `OpenBadgeCredential`s no longer show "No description
+  available." when a real description exists on the achievement.
+  Resolved generically via `credentialDefinitions`, same as the image
+  fallback above.
 
 ## 5.0.0 - 2024-04-01
 
