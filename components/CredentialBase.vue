@@ -21,6 +21,7 @@
           :value-class="`text-right
             ${textColor ? '':' text-grey-7'}
             ${dense ? ' text-caption':' text-caption'}`"
+          :max-width="maxWidth"
           lines="2" />
       </slot>
     </div>
@@ -95,6 +96,15 @@ const props = defineProps({
   descriptionOverride: {
     type: String,
     default: ''
+  },
+  // Forwarded to CredentialField's own maxWidth prop — default matches
+  // CredentialField's default, so callers that don't pass this see no
+  // change. Callers using a wider card than the original ~275px one this
+  // was tuned for can now pass a real value instead of needing a scoped
+  // `!important` CSS override to make their own text fit.
+  maxWidth: {
+    type: String,
+    default: '225px'
   }
 });
 

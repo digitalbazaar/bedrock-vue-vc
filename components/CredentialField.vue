@@ -4,7 +4,7 @@
       <q-item-section>
         <q-item-label
           class="cf-value"
-          style="max-width: 225px;"
+          :style="{maxWidth: maxWidth}"
           :class="valueClass"
           :lines="lines">
           {{value}}
@@ -12,7 +12,7 @@
         <q-item-label
           v-if="title"
           class="cf-title"
-          style="max-width: 225px;"
+          :style="{maxWidth: maxWidth}"
           :class="titleClass"
           :lines="lines">
           {{title}}
@@ -48,6 +48,14 @@ const props = defineProps({
   lines: {
     type: String,
     default: '1'
+  },
+  // Kept as a prop (default matches the original hardcoded value) rather
+  // than a fixed inline style so callers with a wider card don't need to
+  // fight this with a scoped `!important` CSS override to get their own
+  // text to actually fit.
+  maxWidth: {
+    type: String,
+    default: '225px'
   }
 });
 
