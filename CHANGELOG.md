@@ -11,6 +11,7 @@
   vocabulary-defined. Adding fallback support for a new vocabulary is a
   new entry in `credentialDefinitions`, not new conditional logic in a
   resolver.
+- Add `maxWidth` prop to `CredentialField` and `CredentialBase`.
 
 ### Fixed
 - Resolve an Open Badges v3 (OBv3) achievement image
