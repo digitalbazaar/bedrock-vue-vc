@@ -2,6 +2,7 @@
  * Copyright (c) 2022 Digital Bazaar, Inc. All rights reserved.
  */
 import {computed, unref} from 'vue';
+import {resolveCredentialDefinitionField} from './credentialDefinitions.js';
 
 /**
  * Common utilities for credential components.
@@ -26,8 +27,16 @@ export function useCredentialCommon({credential}) {
   });
 
   const credentialImage = computed(() => {
-    const {image = null, issuer} = unref(credential);
-    return image ?? issuer?.image ?? issuer?.logo ?? '';
+    const cred = unref(credential);
+    const {image = null, issuer} = cred;
+    // fall back to a vocabulary-specific image (e.g. OBv3's
+    // `credentialSubject.achievement.image`) when no top-level image is
+    // set; the resolved value may itself be a string URL or an image
+    // object (`.id` holds the URL), per the OBv3 vocabulary
+    const definitionImage = resolveCredentialDefinitionField(
+      {credential: cred, field: 'imagePointer'});
+    const definitionImageUrl = definitionImage?.id ?? definitionImage ?? null;
+    return image ?? definitionImageUrl ?? issuer?.image ?? issuer?.logo ?? '';
   });
 
   const issuerName = computed(() => {

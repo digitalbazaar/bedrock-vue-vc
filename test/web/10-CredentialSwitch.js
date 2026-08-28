@@ -1,7 +1,10 @@
 /*!
  * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
  */
-import {alumniCredential, basicCredential} from './mock-credentials.js';
+import {
+  alumniCredential, basicCredential, openBadgeCredential,
+  openBadgeCredentialStringAchievementImage
+} from './mock-credentials.js';
 import {CredentialSwitch, registerComponent} from '@bedrock/vue-vc';
 import AlumniDisplay from '../components/examples/alumniDisplay.vue';
 import {config} from '@bedrock/web';
@@ -51,6 +54,33 @@ describe('CredentialSwitch', () => {
       .trim().should.equal('Test Credential');
     vm.$el.querySelector('.cf-value').textContent
       .trim().should.equal(basicCredential.description);
+    tearDown(app);
+  });
+
+  it('should resolve an OBv3 achievement image when no top-level ' +
+    'image is present', async () => {
+    const {app, vm} = await renderCredential({
+      propsData: {credential: openBadgeCredential}});
+    should.exist(vm);
+    should.exist(vm.$el);
+    const img = vm.$el.querySelector('img');
+    should.exist(img);
+    img.getAttribute('src').should.equal(
+      openBadgeCredential.credentialSubject.achievement.image.id);
+    tearDown(app);
+  });
+
+  it('should resolve an OBv3 achievement image when it is a plain ' +
+    'string URL instead of an image object', async () => {
+    const {app, vm} = await renderCredential({
+      propsData: {credential: openBadgeCredentialStringAchievementImage}});
+    should.exist(vm);
+    should.exist(vm.$el);
+    const img = vm.$el.querySelector('img');
+    should.exist(img);
+    img.getAttribute('src').should.equal(
+      openBadgeCredentialStringAchievementImage
+        .credentialSubject.achievement.image);
     tearDown(app);
   });
 

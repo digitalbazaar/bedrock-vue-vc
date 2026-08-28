@@ -1,5 +1,25 @@
 # bedrock-vue-vc ChangeLog
 
+## 5.1.0 - 2026-mm-dd
+
+### Added
+- `components/credentialDefinitions.js`: a generic, JSON Pointer-based
+  mechanism for vocabulary-specific credential field fallbacks (`image`,
+  `description`, ...). A definition matches a credential by JSON Pointer
+  value (array-membership when the target is an array, e.g. `/type`) and
+  supplies pointers to resolve for fields the core VCDM leaves
+  vocabulary-defined. Adding fallback support for a new vocabulary is a
+  new entry in `credentialDefinitions`, not new conditional logic in a
+  resolver.
+
+### Fixed
+- Resolve an Open Badges v3 (OBv3) achievement image
+  (`credentialSubject.achievement.image`) as a fallback for
+  `credentialImage` when no top-level credential image is present, so
+  OBv3 `OpenBadgeCredential`s no longer show the generic checkbox
+  placeholder icon. Resolved generically via `credentialDefinitions`
+  rather than hardcoded in `credentialImage` itself.
+
 ## 5.0.0 - 2024-04-01
 
 ### Added
