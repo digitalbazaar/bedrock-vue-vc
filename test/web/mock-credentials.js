@@ -48,3 +48,51 @@ export const basicCredential = {
   description: 'Test description',
   image: 'http://example.com/some-image.png'
 };
+
+export const openBadgeCredential = {
+  '@context': [
+    'https://www.w3.org/2018/credentials/v1',
+    'https://purl.imsglobal.org/spec/ob/v3p0/context.json'
+  ],
+  id: 'http://example.edu/credentials/obv3-1',
+  type: [
+    'VerifiableCredential',
+    'OpenBadgeCredential'
+  ],
+  issuer: {
+    id: 'did:example:issuer',
+    name: 'Example Badge Issuer'
+  },
+  name: 'Open Badge Credential',
+  description: 'The holder earned this badge.',
+  issuanceDate: '2024-01-01T12:00:00Z',
+  credentialSubject: {
+    id: 'did:example:ebfeb1f712ebc6f1c276e12ec21',
+    type: ['AchievementSubject'],
+    achievement: {
+      id: 'http://example.edu/achievements/1',
+      type: ['Achievement'],
+      name: 'Example Achievement',
+      image: {
+        id: 'http://example.com/achievement-image.png',
+        type: 'Image'
+      }
+    }
+  }
+};
+
+export const openBadgeCredentialStringAchievementImage = {
+  ...openBadgeCredential,
+  id: 'http://example.edu/credentials/obv3-4',
+  name: 'Open Badge Credential (string achievement image)',
+  credentialSubject: {
+    ...openBadgeCredential.credentialSubject,
+    achievement: {
+      ...openBadgeCredential.credentialSubject.achievement,
+      id: 'http://example.edu/achievements/4',
+      // OBv3's achievement `image` may be a plain string URL instead of
+      // an image object with an `id`
+      image: 'http://example.com/string-achievement-image.png'
+    }
+  }
+};
