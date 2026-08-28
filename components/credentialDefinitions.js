@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2026 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2026 Digital Bazaar, Inc.
  */
 /**
  * Generic, vocabulary-specific fallbacks for credential fields the core

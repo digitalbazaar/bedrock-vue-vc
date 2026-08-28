@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2022 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2022-2026 Digital Bazaar, Inc.
  */
 import {computed, unref} from 'vue';
 import {resolveCredentialDefinitionField} from './credentialDefinitions.js';
