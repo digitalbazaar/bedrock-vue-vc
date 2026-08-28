@@ -15,7 +15,7 @@
 </template>
 <script>
 /*!
- * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2018-2026 Digital Bazaar, Inc.
  */
 import alumniCredential from './examples/credentials/alumniCredential.json';
 import {
@@ -42,11 +42,11 @@ export default {
         profile: {
           name: 'Business',
           color: '#3498DB',
-          type: ['Profile', 'Person'],
-        },
+          type: ['Profile', 'Person']
+        }
       }
     };
-  },
+  }
 };
 </script>
 <style lang="scss" scoped>

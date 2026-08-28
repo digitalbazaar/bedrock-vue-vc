@@ -14,7 +14,7 @@
 
 <script setup>
 /*!
- * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2018-2026 Digital Bazaar, Inc.
  */
 import {computed, defineProps, ref} from 'vue';
 import {useQuasar} from 'quasar';
@@ -47,13 +47,11 @@ const hasImageError = ref(false);
 const props = defineProps({
   src: {
     type: String,
-    required: true,
-    default: ''
+    required: true
   },
   size: {
     type: String,
-    required: true,
-    default: 'md'
+    required: true
   }
 });
 
@@ -157,6 +155,5 @@ img {
     height: $xl;
     border-radius: 4px;
   }
-
 }
 </style>

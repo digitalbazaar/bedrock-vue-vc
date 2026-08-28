@@ -1,4 +1,4 @@
-<!-- eslint-disable max-len -->
+<!-- eslint-disable @stylistic/max-len -->
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@
 
   </svg>
 </template>
-<!-- eslint-enable max-len -->
+<!-- eslint-enable @stylistic/max-len -->
 
 <script>
 export default {
