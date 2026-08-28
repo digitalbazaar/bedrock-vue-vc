@@ -14,7 +14,7 @@
 
 <script setup>
 /*!
- * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2018-2026 Digital Bazaar, Inc.
  */
 import {computed, defineProps, unref} from 'vue';
 import {config, extend} from '@bedrock/web';
