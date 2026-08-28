@@ -42,7 +42,7 @@ export const alumniCredential = {
 
 export const basicCredential = {
   credentialSubject: {
-    name: 'John Doe',
+    name: 'John Doe'
   },
   type: ['TestCredential'],
   description: 'Test description',

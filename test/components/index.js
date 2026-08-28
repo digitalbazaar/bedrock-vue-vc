@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2018-2022 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2018-2026 Digital Bazaar, Inc.
  */
 import * as brQuasar from '@bedrock/quasar';
 import * as brVue from '@bedrock/vue';
@@ -55,7 +55,7 @@ brVue.initialize({
       registration: [{
         acceptableTypes: ['AlumniCredential'],
         components: {
-          details: [{component: 'AlumniDisplay'}],
+          details: [{component: 'AlumniDisplay'}]
         }
       }]
     };
