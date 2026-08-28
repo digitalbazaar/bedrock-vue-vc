@@ -13,6 +13,9 @@
   resolver.
 - Add `maxWidth` prop to `CredentialField` and `CredentialBase`.
 
+### Changed
+- Update dev dependencies.
+
 ### Fixed
 - Resolve an Open Badges v3 (OBv3) achievement image
   (`credentialSubject.achievement.image`) as a fallback for
