@@ -32,9 +32,9 @@
   },
   "homepage": "https://github.com/digitalbazaar/bedrock-vue-vc",
   "peerDependencies": {
-    "@bedrock/quasar": "^10.0.0",
-    "@bedrock/web": "^3.0.0",
-    "vue": "^3.4.21"
+    "@bedrock/quasar": "^10.0.1",
+    "@bedrock/web": "^3.1.0",
+    "vue": "^3.5.42"
   },
   "devDependencies": {
     "@digitalbazaar/eslint-config": "^9.0.0",

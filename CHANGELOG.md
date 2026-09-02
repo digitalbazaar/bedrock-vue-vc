@@ -15,6 +15,11 @@
 
 ### Changed
 - Update dev dependencies.
+- Update peer dependencies.
+  - `@bedrock/quasar@10.0.1`
+  - `@bedrock/web@3.1.0`
+  - `vue@3.5.42`
+- Update test dependencies.
 
 ### Fixed
 - Resolve an Open Badges v3 (OBv3) achievement image
