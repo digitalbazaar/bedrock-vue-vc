@@ -31,19 +31,19 @@
   },
   "homepage": "https://github.com/digitalbazaar/bedrock-vue-vc",
   "dependencies": {
-    "@bedrock/core": "^6.0.1",
-    "@bedrock/express": "^8.2.0",
-    "@bedrock/karma": "^7.0.1",
-    "@bedrock/quasar": "^10.0.0",
-    "@bedrock/server": "^5.0.0",
-    "@bedrock/test": "^8.0.5",
-    "@bedrock/views": "^11.0.0",
-    "@bedrock/vue": "^5.0.1",
+    "@bedrock/core": "^6.3.0",
+    "@bedrock/express": "^8.8.0",
+    "@bedrock/karma": "^8.0.0",
+    "@bedrock/quasar": "^10.0.1",
+    "@bedrock/server": "^5.2.0",
+    "@bedrock/test": "^10.0.0",
+    "@bedrock/views": "^12.0.0",
+    "@bedrock/vue": "^5.2.1",
     "@bedrock/vue-vc": "file:..",
-    "@bedrock/web": "^3.0.0",
-    "@bedrock/web-fontawesome": "^2.0.0",
-    "@bedrock/webpack": "^9.0.3",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "@bedrock/web": "^3.1.0",
+    "@bedrock/web-fontawesome": "^2.1.0",
+    "@bedrock/webpack": "^11.7.0",
+    "vue": "^3.5.42",
+    "vue-router": "^5.3.1"
   }
 }
