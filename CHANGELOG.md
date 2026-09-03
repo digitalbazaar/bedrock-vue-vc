@@ -1,6 +1,6 @@
 # bedrock-vue-vc ChangeLog
 
-## 5.1.0 - 2026-mm-dd
+## 5.1.0 - 2026-09-03
 
 ### Added
 - `components/credentialDefinitions.js`: a generic, JSON Pointer-based
