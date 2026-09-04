@@ -1,6 +1,6 @@
 # bedrock-vue-vc ChangeLog
 
-## 6.0.0 - 2026-09-dd
+## 6.0.0 - 2026-09-04
 
 ### Changed
 - **BREAKING**: Require `@bedrock/quasar@11`, replacing `@bedrock/quasar@10`,
