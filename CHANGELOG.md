@@ -1,5 +1,14 @@
 # bedrock-vue-vc ChangeLog
 
+## 6.0.0 - 2026-09-dd
+
+### Changed
+- **BREAKING**: Require `@bedrock/quasar@11`, replacing `@bedrock/quasar@10`,
+  in the peer dependency range. That release moves to `@bedrock/vue@6`; this
+  package does not use `@bedrock/vue` itself, so no code changes are needed
+  here. The existing `vue@^3.5.42` range already satisfies what
+  `@bedrock/quasar@11` requires.
+
 ## 5.1.0 - 2026-09-03
 
 ### Added
