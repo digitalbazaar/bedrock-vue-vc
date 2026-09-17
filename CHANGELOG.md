@@ -1,5 +1,11 @@
 # bedrock-vue-vc ChangeLog
 
+## 6.1.0 - 2026-mm-dd
+
+### Added
+- Add `singleRow` prop to `CredentialBase` to render the credential image and
+  description side by side in a single row.
+
 ## 6.0.0 - 2026-09-04
 
 ### Changed

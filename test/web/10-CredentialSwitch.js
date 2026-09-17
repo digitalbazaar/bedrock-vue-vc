@@ -71,6 +71,52 @@ describe('CredentialSwitch', () => {
     tearDown(app);
   });
 
+  it('should render the column layout by default', async () => {
+    const {app, vm} = await renderCredential({
+      propsData: {credential: basicCredential}});
+    should.exist(vm);
+    should.exist(vm.$el.querySelector(':scope > .column'));
+    should.not.exist(vm.$el.querySelector(':scope > .row'));
+    tearDown(app);
+  });
+
+  it('should render the single row layout when `singleRow` is set',
+    async () => {
+      const {app, vm} = await renderCredential({
+        propsData: {credential: basicCredential, singleRow: true}});
+      should.exist(vm);
+      should.exist(vm.$el.querySelector(':scope > .row'));
+      should.not.exist(vm.$el.querySelector(':scope > .column'));
+      vm.$el.querySelector('.cf-title').textContent
+        .trim().should.equal('Test Credential');
+      vm.$el.querySelector('.cf-value').textContent
+        .trim().should.equal(basicCredential.description);
+      tearDown(app);
+    });
+
+  it('should clamp the description to 2 lines in the single row layout',
+    async () => {
+      const {app, vm} = await renderCredential({
+        propsData: {credential: basicCredential, singleRow: true}});
+      should.exist(vm);
+      const value = vm.$el.querySelector('.cf-value');
+      should.exist(value);
+      value.classList.contains('ellipsis').should.equal(false);
+      value.style.webkitLineClamp.should.equal('2');
+      tearDown(app);
+    });
+
+  it('should apply `maxWidth` in the single row layout', async () => {
+    const {app, vm} = await renderCredential({
+      propsData: {
+        credential: basicCredential, singleRow: true, maxWidth: '150px'
+      }});
+    should.exist(vm);
+    vm.$el.querySelector('.cf-value').style.maxWidth.should.equal('150px');
+    vm.$el.querySelector('.cf-title').style.maxWidth.should.equal('150px');
+    tearDown(app);
+  });
+
   it('should resolve an OBv3 achievement image when no top-level ' +
     'image is present', async () => {
     const {app, vm} = await renderCredential({
