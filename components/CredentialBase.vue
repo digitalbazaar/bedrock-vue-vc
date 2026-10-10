@@ -3,9 +3,7 @@
     class="full-height"
     :class="clickable && 'cb-clickable cursor-pointer'"
     @click="clickable && toggleDetails()">
-    <div
-      v-if="!singleRow"
-      class="column full-height">
+    <div :class="layoutClasses.container">
       <slot name="image">
         <dynamic-image
           class="q-mr-auto"
@@ -14,31 +12,7 @@
       </slot>
       <slot name="description">
         <credential-field
-          class="col flex items-end q-ml-auto"
-          :style="[textColor && `color: ${textColor}`]"
-          :title="nameOverride.length > 0 ? nameOverride : credentialName"
-          :title-class="`text-right ${dense ? 'text-body2':'text-body1'}`"
-          :value="descriptionOverride.length > 0 ?
-            descriptionOverride : description"
-          :value-class="`text-right
-            ${textColor ? '':' text-grey-7'}
-            ${dense ? ' text-caption':' text-caption'}`"
-          :max-width="maxWidth"
-          lines="2" />
-      </slot>
-    </div>
-    <div
-      v-else
-      class="row full-height full-width justify-between">
-      <slot name="image">
-        <dynamic-image
-          class="q-mr-auto"
-          :src="imageOverride.length > 0 ? imageOverride : credentialImage"
-          :size="dense ? 'sm' : 'md'" />
-      </slot>
-      <slot name="description">
-        <credential-field
-          class="row flex items-end"
+          :class="layoutClasses.description"
           :style="[textColor && `color: ${textColor}`]"
           :title="nameOverride.length > 0 ? nameOverride : credentialName"
           :title-class="`text-right ${dense ? 'text-body2':'text-body1'}`"
@@ -77,6 +51,19 @@ import CredentialField from './CredentialField.vue';
 import CredentialSwitch from './CredentialSwitch.vue';
 import DynamicImage from './DynamicImage.vue';
 import {useCredentialCommon} from './credentialCommon.js';
+
+const LAYOUTS = {
+  // image above the title and description
+  column: {
+    container: 'column full-height',
+    description: 'col flex items-end q-ml-auto'
+  },
+  // image and description side by side
+  row: {
+    container: 'row full-height full-width justify-between',
+    description: 'row flex items-end'
+  }
+};
 
 const props = defineProps({
   credential: {
@@ -127,15 +114,17 @@ const props = defineProps({
     type: String,
     default: '225px'
   },
-  singleRow: {
-    type: Boolean,
-    default: false
+  layout: {
+    type: String,
+    default: 'column'
   }
 });
 
 const state = reactive({
   details: false
 });
+
+const layoutClasses = computed(() => LAYOUTS[props.layout] ?? LAYOUTS.column);
 
 const {
   credentialDescription, credentialName,
