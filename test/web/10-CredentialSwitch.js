@@ -80,36 +80,43 @@ describe('CredentialSwitch', () => {
     tearDown(app);
   });
 
-  it('should render the single row layout when `singleRow` is set',
+  it('should render the row layout when `layout` is "row"', async () => {
+    const {app, vm} = await renderCredential({
+      propsData: {credential: basicCredential, layout: 'row'}});
+    should.exist(vm);
+    should.exist(vm.$el.querySelector(':scope > .row'));
+    should.not.exist(vm.$el.querySelector(':scope > .column'));
+    vm.$el.querySelector('.cf-title').textContent
+      .trim().should.equal('Test Credential');
+    vm.$el.querySelector('.cf-value').textContent
+      .trim().should.equal(basicCredential.description);
+    tearDown(app);
+  });
+
+  it('should fall back to the column layout for an unknown `layout`',
     async () => {
       const {app, vm} = await renderCredential({
-        propsData: {credential: basicCredential, singleRow: true}});
+        propsData: {credential: basicCredential, layout: 'bogus'}});
       should.exist(vm);
-      should.exist(vm.$el.querySelector(':scope > .row'));
-      should.not.exist(vm.$el.querySelector(':scope > .column'));
-      vm.$el.querySelector('.cf-title').textContent
-        .trim().should.equal('Test Credential');
-      vm.$el.querySelector('.cf-value').textContent
-        .trim().should.equal(basicCredential.description);
+      should.exist(vm.$el.querySelector(':scope > .column'));
       tearDown(app);
     });
 
-  it('should clamp the description to 2 lines in the single row layout',
-    async () => {
-      const {app, vm} = await renderCredential({
-        propsData: {credential: basicCredential, singleRow: true}});
-      should.exist(vm);
-      const value = vm.$el.querySelector('.cf-value');
-      should.exist(value);
-      value.classList.contains('ellipsis').should.equal(false);
-      value.style.webkitLineClamp.should.equal('2');
-      tearDown(app);
-    });
+  it('should clamp the description to 2 lines in the row layout', async () => {
+    const {app, vm} = await renderCredential({
+      propsData: {credential: basicCredential, layout: 'row'}});
+    should.exist(vm);
+    const value = vm.$el.querySelector('.cf-value');
+    should.exist(value);
+    value.classList.contains('ellipsis').should.equal(false);
+    value.style.webkitLineClamp.should.equal('2');
+    tearDown(app);
+  });
 
-  it('should apply `maxWidth` in the single row layout', async () => {
+  it('should apply `maxWidth` in the row layout', async () => {
     const {app, vm} = await renderCredential({
       propsData: {
-        credential: basicCredential, singleRow: true, maxWidth: '150px'
+        credential: basicCredential, layout: 'row', maxWidth: '150px'
       }});
     should.exist(vm);
     vm.$el.querySelector('.cf-value').style.maxWidth.should.equal('150px');

@@ -3,8 +3,9 @@
 ## 6.1.0 - 2026-mm-dd
 
 ### Added
-- Add `singleRow` prop to `CredentialBase` to render the credential image and
-  description side by side in a single row.
+- Add `layout` prop to `CredentialBase`, accepting `column` (the default) or
+  `row`. The `row` layout renders the credential image and description side by
+  side, respecting the `maxWidth` prop and the 2-line clamp used by `column`.
 
 ## 6.0.0 - 2026-09-04
 
