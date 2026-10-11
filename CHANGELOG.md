@@ -1,6 +1,6 @@
 # bedrock-vue-vc ChangeLog
 
-## 6.1.0 - 2026-mm-dd
+## 6.1.0 - 2026-10-11
 
 ### Added
 - Add `layout` prop to `CredentialBase`, accepting `column` (the default) or
