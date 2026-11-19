@@ -1,5 +1,15 @@
 # bedrock-vue-vc ChangeLog
 
+## 6.1.1 - 2026-mm-dd
+
+### Fixed
+- Fix the `row` layout of `CredentialBase`. Without the patch, the description
+  rendered above the name, both were right-aligned at the far end of the row,
+  and the image sat apart at the far left, so a list of credentials did not
+  read like a `q-item` list. With the patch, the image comes first, followed by
+  the name with the description under it, both left-aligned beside the image.
+  The `column` layout is unchanged.
+
 ## 6.1.0 - 2026-10-11
 
 ### Added
