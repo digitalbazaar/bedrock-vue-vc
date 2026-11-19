@@ -2,21 +2,17 @@
   <div v-if="show">
     <q-item class="q-pa-none">
       <q-item-section>
-        <q-item-label
-          class="cf-value"
-          :style="{maxWidth: maxWidth}"
-          :class="valueClass"
-          :lines="lines">
-          {{value}}
-        </q-item-label>
-        <q-item-label
-          v-if="title"
-          class="cf-title"
-          :style="{maxWidth: maxWidth}"
-          :class="titleClass"
-          :lines="lines">
-          {{title}}
-        </q-item-label>
+        <template
+          v-for="field of fields"
+          :key="field.name">
+          <q-item-label
+            v-if="field.text"
+            :class="[`cf-${field.name}`, field.class]"
+            :style="{maxWidth: maxWidth}"
+            :lines="lines">
+            {{field.text}}
+          </q-item-label>
+        </template>
       </q-item-section>
     </q-item>
   </div>
@@ -52,10 +48,19 @@ const props = defineProps({
   maxWidth: {
     type: String,
     default: '225px'
+  },
+  titleFirst: {
+    type: Boolean,
+    default: false
   }
 });
 
 const show = computed(() => props.value.length > 0);
+const fields = computed(() => {
+  const title = {name: 'title', text: props.title, class: props.titleClass};
+  const value = {name: 'value', text: props.value, class: props.valueClass};
+  return props.titleFirst ? [title, value] : [value, title];
+});
 </script>
 
 <style lang="scss" scoped>

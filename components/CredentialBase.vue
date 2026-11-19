@@ -6,7 +6,7 @@
     <div :class="layoutClasses.container">
       <slot name="image">
         <dynamic-image
-          class="q-mr-auto"
+          :class="layoutClasses.image"
           :src="imageOverride.length > 0 ? imageOverride : credentialImage"
           :size="dense ? 'sm' : 'md'" />
       </slot>
@@ -15,10 +15,12 @@
           :class="layoutClasses.description"
           :style="[textColor && `color: ${textColor}`]"
           :title="nameOverride.length > 0 ? nameOverride : credentialName"
-          :title-class="`text-right ${dense ? 'text-body2':'text-body1'}`"
+          :title-class="`${layoutClasses.text}
+            ${dense ? 'text-body2':'text-body1'}`"
+          :title-first="layoutClasses.titleFirst"
           :value="descriptionOverride.length > 0 ?
             descriptionOverride : description"
-          :value-class="`text-right
+          :value-class="`${layoutClasses.text}
             ${textColor ? '':' text-grey-7'}
             ${dense ? ' text-caption':' text-caption'}`"
           :max-width="maxWidth"
@@ -56,12 +58,18 @@ const LAYOUTS = {
   // image above the title and description
   column: {
     container: 'column full-height',
-    description: 'col flex items-end q-ml-auto'
+    image: 'q-mr-auto',
+    description: 'col flex items-end q-ml-auto',
+    text: 'text-right',
+    titleFirst: false
   },
-  // image and description side by side
+  // image and description side by side, like a `q-item` list row
   row: {
-    container: 'row full-height full-width justify-between',
-    description: 'row flex items-end'
+    container: 'row full-height full-width no-wrap items-center',
+    image: 'q-mr-md',
+    description: 'col',
+    text: 'text-left',
+    titleFirst: true
   }
 };
 
